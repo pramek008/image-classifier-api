@@ -14,8 +14,12 @@ interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
-# Class names (replace with your actual class names)
-class_names = ['cat', 'dog', 'rabbit']  # Example class names
+# Read class names from file
+def read_class_names(file_path):
+    with open(file_path, 'r') as f:
+        return [line.strip() for line in f.readlines()]
+
+class_names = read_class_names("model/labels.txt")
 
 def preprocess_image(image):
     # Resize the image to match the input shape of your model
@@ -29,7 +33,7 @@ def preprocess_image(image):
 
 @app.route("/")
 def index():
-    return "Hello from Docker! Use /api/likers, /api/post, or /api/comments with ?url= parameter to get Instagram data."
+    return "Hello from Docker! Use /predict to classify pet images."
 
 @app.route('/predict', methods=['POST'])
 def predict():

@@ -1,0 +1,5 @@
+src/__pycache__/config.cpython-311.pyc
+src/__pycache__/routes.cpython-311.pyc
+src/__pycache__/services.cpython-311.pyc
+src/__pycache__/utils.cpython-311.pyc
+app.log

@@ -12,16 +12,15 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
-# COPY requirements.txt .
 COPY requirements.txt .
 RUN pip install --upgrade pip
-# RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Set environment variables
 # ENV LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 
 # Copy the application code
-COPY . .
+COPY model/ /app/model/
+COPY src/ /app/src/
 
-CMD ["python", "app.py"]
+CMD ["python", "src/app.py"]

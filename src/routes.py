@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from services import ImageClassifier, ObjectDetector
+from services import ImageClassifier
 from utils import get_image_from_request
 from config import CLASSIFICATION_MODEL_PATH, CLASSIFICATION_LABELS_PATH, DETECTION_MODEL_PATH, DETECTION_LABELS_PATH
 import logging

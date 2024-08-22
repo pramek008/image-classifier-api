@@ -63,6 +63,8 @@ def configure_routes(app):
         
         # Gambar bounding box pada gambar
         annotated_image = draw_detections(image, detections)
+
+        app.logger.info(f"Annotated results: {annotated_image}")
         
         # Konversi gambar ke format JPEG
         is_success, buffer = cv2.imencode(".jpg", annotated_image)
